@@ -1,0 +1,32 @@
+<resultMap type='VI_CLIENTES' id='ClientesResult'>
+    <id property='documento' column='DOCUMENTO'/>
+    <result property='nombre' column='NOMBRE'/>
+    <result property='telefono' column='TELEFONO'/>  
+    <result property='direccion' column='DIRECCION'/>  
+    <result property='email' column='EMAIL'/>  
+    <result property='vetado' column='VETADO'/>  
+</resultMap>
+
+<resultMap type='VI_ITEMRENTADO' id='ItemRentado'>
+    <id property='id' column='ID'/>
+    <association property="CLIENTES_documento" javaType="VI_CLIENTES"></association>      
+    <association property="ITEMS_id" javaType="VI_ITEMS"></association>      
+    <result property='fechainiciorenta' column='FECHA_INICIO'/>
+    <result property='fechafinrenta' column='FECHA_FIN'/> 
+</resultMap>
+
+<resultMap type='VI_ITEMS' id='Items'>
+    <id property='id' column='ID'/>
+    <result property='nombre' column='NOMBRE'/>
+    <result property='descripcion' column='DESCRIPCION'/>
+    <result property='fechalanzamiento' column='FECHA_LANZAMIENTO'/>
+    <result property='tarifaxdia' column='TARIFA_DIA'/>
+    <result property='formatorenta' column='FORMATO_RENTA'/>
+    <result property='genero' column='GENERO'/>
+    <association property="TIPOITEM_id" javaType="VI_ITEMRENTADO"></association>
+</resultMap>
+
+<resultMap type='VI_TIPOITEM' id='TipoItem'>
+    <id property='id' column='ID'/>
+    <result property='descripcion' column='DESCRIPCION'/>
+</resultMap>
